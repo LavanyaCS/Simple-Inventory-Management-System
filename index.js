@@ -1,7 +1,7 @@
 const express = require("express");
 require("dotenv").config();
 const itemRoutes = require("./routes/ItemRoutes");
-
+const userRoutes = require("./routes/UserRoutes");
 const app = express();
 app.use(express.json());
 
@@ -10,6 +10,8 @@ app.use((req, res, next) => {
   next();
 });
 app.use(itemRoutes);
+app.use(userRoutes);
+
 //Heath Check up
 app.get('/',(req,res) => {
    res.send("Inventory API is Running");
